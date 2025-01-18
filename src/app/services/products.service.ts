@@ -18,10 +18,7 @@ export class ProductsService {
     return this.http.get<IProduct[]>(`${this.apiUrl}/items`, { observe: 'response' })
   }
 
-  /*
-  
-  getLocation(id: string): Observable<HttpResponse<any>> {
-    return this.http.get(`${this.apiUrl}/${id}`, { observe: 'response' })
+  deleteProduct(id: number): Observable<HttpResponse<any>> {
+    return this.http.delete(`${this.apiUrl}/items/${id}`, { observe: 'response' })
   }
-  */
 }

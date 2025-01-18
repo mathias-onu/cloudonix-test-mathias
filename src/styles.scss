@@ -11,12 +11,36 @@ html {
 
 .p-inputtext {
     height: 2rem;
+    font-size: .7rem !important;
 }
 
 .p-button {
-    font-size: 2rem;
+    font-size: 2rem !important;
+}
+
+.p-toast-close-button {
+    color: var(--text-color) !important;
 }
 
 .p-paginator-rpp-dropdown {
     font-size: .75rem !important;
+}
+
+.p-confirmdialog-reject-button,
+.p-confirmdialog-accept-button {
+    font-size: 1rem !important;
+}
+
+.p-confirmdialog .p-dialog-footer {
+    justify-content: space-between;
+    height: 75px;
+    margin-top: 20px;
+}
+
+.p-confirmdialog {
+    font-size:.8rem !important;
+}
+
+label {
+    font-size: .7rem;
 }

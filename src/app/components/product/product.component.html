@@ -1,0 +1,19 @@
+<i class="pi pi-times cursor-pointer" (click)="closeDialog()"></i>
+<p class="m-0 text-xs"><i>Click on any of the inputs to edit the product details</i></p>
+<form [formGroup]="productForm" class="flex flex-column mt-3">
+    <div class="flex flex-column gap-2">
+        <label class="m-0">Name</label>
+        <input formControlName="name" pInputText type="text">
+    </div>
+    <div class="flex flex-column gap-2 mt-3">
+        <label class="m-0">Description</label>
+        <input formControlName="description" pInputText type="text">
+    </div>
+    <div class="flex flex-column gap-2 mt-3">
+        <label class="m-0">Cost</label>
+        <input formControlName="cost" pInputText type="text">
+    </div>
+</form>
+<div class="flex justify-content-end gap-3 mt-5">
+    <p-button label="Submit Edit" (onClick)="closeDialog()" styleClass="text-xs" />
+</div>

@@ -1,38 +1,46 @@
 <p-toast />
+<p-confirmdialog />
+
 <div class="p-3 pt-0">
     <h3>Products</h3>
-    <!-- <input
-        pInputText
-        type="text"
-        (input)="productsTable.filterGlobal($event.target.value, 'contains')"
-        placeholder="Search keyword"
-        class="search-table-input"
-    /> -->
-    <p-table 
-        #productsTable
-        [value]="products" 
-        [tableStyle]="{ 'min-width': '50rem' }"
-        styleClass="mt-3"
-        [paginator]="true"
-        [rows]="10"
-        [rowsPerPageOptions]="[10, 20, 50]"
-        [globalFilterFields]="['id', 'name', 'description', 'cost', 'profile', 'sku']"
-    >
-        <ng-template #header>
-            <tr class="text-xs">
-                <th>Index</th>
-                <th>SKU</th>
-                <th>Name</th>
-                <th>Cost</th>
-            </tr>
-        </ng-template>
-        <ng-template #body let-product let-rowIndex="rowIndex">
-            <tr class="text-xs">
-                <td>{{ rowIndex }}</td>
-                <td>{{ product.sku }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.cost }}</td>
-            </tr>
-        </ng-template>
-    </p-table>
+    @if (products) {
+        <p-table 
+            #productsTable
+            [value]="products" 
+            [tableStyle]="{ 'min-width': '50rem' }"
+            styleClass="mt-3"
+            [paginator]="true"
+            [rows]="10"
+            [rowsPerPageOptions]="[10, 20, 50]"
+            [globalFilterFields]="['id', 'name', 'description', 'cost', 'profile', 'sku']"
+        >
+            <ng-template #header>
+                <tr class="text-xs">
+                    <th>Index</th>
+                    <th>SKU</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-product let-rowIndex="rowIndex">
+                <tr class="text-xs cursor-pointer">
+                    <td>{{ rowIndex }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>${{ product.cost }}</td>
+                    <td>
+                        <div class="flex gap-3">
+                            <p-button icon="pi pi-eye" severity="secondary" (onClick)="openProduct(rowIndex)" />
+                            <p-button icon="pi pi-pencil" severity="secondary" (onClick)="openProduct(rowIndex)" />
+                            <p-button icon="pi pi-trash" severity="danger" (onClick)="deleteProduct(rowIndex, $event)" [outlined]="true" />
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    }
+    @else {
+        <p-progress-spinner ariaLabel="loading" />
+    }
 </div>
