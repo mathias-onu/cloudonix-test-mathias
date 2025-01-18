@@ -4,14 +4,18 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { IProduct } from '../../interfaces/products';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { KeyValueComponent } from "../key-value/key-value.component";
 
 @Component({
   selector: 'app-product',
   imports: [
     ButtonModule,
     ReactiveFormsModule,
-    InputTextModule
-  ],
+    InputTextModule,
+    InputNumberModule,
+    KeyValueComponent
+],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

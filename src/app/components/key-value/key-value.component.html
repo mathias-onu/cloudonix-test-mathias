@@ -1,0 +1,14 @@
+<form [formGroup]="productProfileForm" class="container flex flex-column justify-content-between p-3 h-15rem">
+    <div class="pairs-container" formArrayName="pairs">
+        @for (pair of pairs.controls; track pair) {
+            <div class="flex justify-content-between gap-3" [class]="$index > 0 ? 'mt-2' : ''" [formGroupName]="$index">
+                <input formControlName="key" type="text" pInputText class="w-full">
+                <input formControlName="value" type="text" pInputText class="w-full">
+                <p-button icon="pi pi-trash" (onClick)="deletePair($index)" severity="danger" [outlined]="true" />
+            </div>
+        }
+    </div>
+    <div class="flex justify-content-end gap-3 mt-2">
+        <p-button label="Add new key/value" (onClick)="addNewPair()" [outlined]="true" styleClass="text-xs" />
+    </div>
+</form>
