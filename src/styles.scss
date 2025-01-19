@@ -9,8 +9,17 @@ html {
     font-size: 20px;
 }
 
-.p-inputtext {
+.p-inputtext,
+.p-select {
     height: 2rem;
+    font-size: .7rem !important;
+}
+
+.p-select {
+    height: 2.1rem;
+}
+
+.p-select-overlay {
     font-size: .7rem !important;
 }
 

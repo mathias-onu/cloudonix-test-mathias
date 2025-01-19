@@ -79,7 +79,7 @@ export class ProductsComponent implements OnInit {
       },
       accept: () => {
         this.productsService.deleteProduct(this.products[i].id).subscribe({
-          next: (res) => {
+          next: () => {
             this.getProducts()
             this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: `Product ${this.products[i].sku} has been deleted` })
           },

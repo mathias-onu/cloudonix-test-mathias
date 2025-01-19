@@ -2,13 +2,32 @@
     <div class="pairs-container" formArrayName="pairs">
         @for (pair of pairs.controls; track pair) {
             <div class="flex justify-content-between gap-3" [class]="$index > 0 ? 'mt-2' : ''" [formGroupName]="$index">
-                <input formControlName="key" type="text" pInputText class="w-full">
-                <input formControlName="value" type="text" pInputText class="w-full">
+                <p-select formControlName="key" [options]="profileKeyOptions" optionLabel="name" placeholder="Select" appendTo="body" class="w-full" styleClass="flex-1" />
+                @switch (pair.value.key.name) {
+                    @case ('type') {
+                        <div class="flex align-items-center gap-5 flex-1">
+                            <label for="type">Type</label>
+                            <p-select formControlName="value" [options]="typeValues" optionLabel="name" placeholder="Select a type value" appendTo="body" inputId="type" />
+                        </div>
+                    }
+                    @case ('available') {
+                        <div class="flex align-items-center gap-2 flex-1">
+                            <label for="available">Available</label>
+                            <p-checkbox formControlName="value" [value]="false" inputId="available" />
+                        </div>
+                    }
+                    @case ('backlog') {
+                        <div class="flex align-items-center gap-3 flex-1">
+                            <label for="backlogInput">Backlog</label>
+                            <p-inputnumber formControlName="value" [showButtons]="true" inputId="backlog" [min]="0" />
+                        </div>
+                    }
+                }
                 <p-button icon="pi pi-trash" (onClick)="deletePair($index)" severity="danger" [outlined]="true" />
             </div>
         }
     </div>
     <div class="flex justify-content-end gap-3 mt-2">
-        <p-button label="Add new key/value" (onClick)="addNewPair()" [outlined]="true" styleClass="text-xs" />
+        <p-button label="Add new key/value" (onClick)="addNewPair()" [outlined]="true" [disabled]="productProfileForm.invalid" styleClass="text-xs" />
     </div>
 </form>
