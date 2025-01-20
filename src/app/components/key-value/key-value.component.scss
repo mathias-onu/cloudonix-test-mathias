@@ -1,0 +1,9 @@
+.container {
+    background-color: var(--p-inputtext-background);
+    border: 1px solid var(--p-inputtext-border-color);
+    border-radius: var(--p-inputtext-border-radius);
+}
+
+.pairs-container {
+    overflow-y: auto;
+}

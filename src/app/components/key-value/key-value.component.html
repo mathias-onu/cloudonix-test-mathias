@@ -1,0 +1,34 @@
+<p-toast />
+<form [formGroup]="productProfileForm" class="container flex flex-column justify-content-between p-3 h-11rem">
+    <div class="pairs-container" formArrayName="pairs">
+        @for (pair of pairs.controls; track pair) {
+            <div class="flex justify-content-between gap-3" [class]="$index > 0 ? 'mt-2' : ''" [formGroupName]="$index">
+                <p-select formControlName="key" [options]="profileKeyOptions" optionLabel="name" placeholder="Select" appendTo="body" class="w-full" styleClass="flex-1" />
+                @switch (pair.value.key.name) {
+                    @case ('type') {
+                        <div class="flex align-items-center gap-5 flex-1">
+                            <label for="type">Type</label>
+                            <p-select formControlName="type" [options]="typeValues" optionLabel="name" placeholder="Select a type value" appendTo="body" inputId="type" />
+                        </div>
+                    }
+                    @case ('available') {
+                        <div class="flex align-items-center gap-2 flex-1">
+                            <label for="available">Available</label>
+                            <p-checkbox formControlName="available" [binary]="true" inputId="available" />
+                        </div>
+                    }
+                    @case ('backlog') {
+                        <div class="flex align-items-center gap-3 flex-1">
+                            <label for="backlogInput">Backlog</label>
+                            <p-inputnumber formControlName="backlog" [showButtons]="true" inputId="backlog" [min]="0" />
+                        </div>
+                    }
+                }
+                <p-button icon="pi pi-trash" (onClick)="deletePair($index)" severity="danger" [outlined]="true" />
+            </div>
+        }
+    </div>
+    <div class="flex justify-content-end gap-3 mt-2">
+        <p-button label="Add new key/value" (onClick)="addNewPair()" [outlined]="true" [disabled]="productProfileForm.invalid || completeProfile" styleClass="text-xs" />
+    </div>
+</form>
