@@ -318,17 +318,17 @@ const MyPreset = definePreset(Aura, {
     iconSize: "1rem",
     anchorGutter: "2px",
     primary: {
-      50: "#f4fdfe",
-      100: "#caf4fb",
-      200: "#a1ecf8",
-      300: "#77e4f4",
-      400: "#4edbf1",
-      500: "#24d3ee",
-      600: "#1fb3ca",
-      700: "#1994a7",
-      800: "#147483",
-      900: "#0e545f",
-      950: "#09353c"
+      50: "#f3f8fb",
+      100: "#c6dcee",
+      200: "#98c1e0",
+      300: "#6ba6d2",
+      400: "#3d8ac5",
+      500: "#106fb7",
+      600: "#0e5e9c",
+      700: "#0b4e80",
+      800: "#093d65",
+      900: "#062c49",
+      950: "#041c2e"
     },
     formField: {
       paddingX: "0.75rem",
