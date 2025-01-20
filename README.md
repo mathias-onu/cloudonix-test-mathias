@@ -2,58 +2,65 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
+## Project documentation
+
+This project is the Mathias Onu's submission for an interview assignment for a Frontend Developer position at Cloudonix. It is a web application built with Angular 19, which manages a collection of products for an online store.
+
+First and foremost, I noticed a bug: in the key-value pairs section, when sending an empty profile as edit / create, the response of the request contains an added "type" property with value "equipment". Shouldn't the user be allowed not to add any key-value pairs? If the user should not be allowed to enter an empty profile, then I apologize for the misunderstanding, since the current project version allows it.
+
+Unfortunately, given the limited time frame, and my busy schedule, I wasn't able to add any tests. I recognize the importance of unit and e2e tests, and in future iterations I would certainly develop them. 
+
+Project Features:
+1. Login screen to authenticate users
+    - Login screen with authorization key
+    - Bearer token implementation
+    - Route guards for protected pages
+2. Visualize the store's products
+    - View all products in a paginated table
+    - Create new products
+    - Edit existing products
+    - Delete products
+    - Real-time form validation
+3. Edit, delete, and create existing products
+    - Along with basic operations, it contains key-value pair management
+        - Dynamic form for product properties
+        - Supported property types:
+            - Type (equipment, furniture, stationary, part)
+            - Available (boolean)
+            - Backlog (number)
+
+## Technical Stack
+
+- Angular 19
+- PrimeNG UI Components
+- RxJS for state management
+- Angular Reactive Forms
+- TypeScript
+- SCSS and PrimeFlex library for styling
+
 ## Development server
 
-To start a local development server, run:
+To start a local development server, ensure you have:
+- Node.js version 18.19.1, or newer
+- Git
+- npm
+- Angular CLI (latest)
+
+To start a local development server, clone the repository (`git clone https://github.com/mathias-onu/cloudonix-test-mathias.git`) and run:
 
 ```bash
-ng serve
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
 To build the project run:
 
 ```bash
-ng build
+npm run build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
