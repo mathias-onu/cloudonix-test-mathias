@@ -6,9 +6,7 @@ This web application is live at: [cloudonix-test-mathias.vercel.app](https://clo
 
 This project is Mathias Onu's submission for an interview assignment for a Frontend Developer position at Cloudonix. It is a web application built with Angular 19, which manages a collection of products for an online store.
 
-First and foremost, I noticed a bug: in the key-value pairs section, when sending an empty profile as edit / create, the response of the request contains an added "type" property with value "equipment". Shouldn't the user be allowed not to add any key-value pairs? If the user should not be allowed to enter an empty profile, then I apologize for the misunderstanding, since the current project version allows it.
-
-Unfortunately, given the limited time frame, and my busy schedule, I wasn't able to finish the validation upon entering new key-value pairs, when editing / creating a product. If given the opportunity, I would gladly finish implementing this functionality as well!
+Unfortunately, given the limited time frame, and my busy schedule, I wasn't able to add unit / e2e tests. I recognize that automated tests are extremely important, and if I given the opportunity, I would gladly implement them!
 
 Project Features:
 1. Login screen to authenticate users
@@ -28,6 +26,7 @@ Project Features:
             - Type (equipment, furniture, stationary, part)
             - Available (boolean)
             - Backlog (number)
+        - Prevents adding duplicate pairs
 
 ## Technical Stack
 
