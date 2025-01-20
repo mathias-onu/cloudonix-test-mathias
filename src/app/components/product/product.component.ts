@@ -84,7 +84,7 @@ export class ProductComponent implements OnInit {
       cost: this.productForm.get('cost')?.value!,
       profile: profile
     }
-    
+
     if (this.actionType === 'edit') {
       this.productsService.editProduct(this.product!.id, editPayload).subscribe({
         next: () => this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The product has been updated!', life: 3000 }),

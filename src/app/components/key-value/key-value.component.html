@@ -1,3 +1,4 @@
+<p-toast />
 <form [formGroup]="productProfileForm" class="container flex flex-column justify-content-between p-3 h-11rem">
     <div class="pairs-container" formArrayName="pairs">
         @for (pair of pairs.controls; track pair) {
@@ -28,6 +29,6 @@
         }
     </div>
     <div class="flex justify-content-end gap-3 mt-2">
-        <p-button label="Add new key/value" (onClick)="addNewPair()" [outlined]="true" [disabled]="productProfileForm.invalid" styleClass="text-xs" />
+        <p-button label="Add new key/value" (onClick)="addNewPair()" [outlined]="true" [disabled]="productProfileForm.invalid || completeProfile" styleClass="text-xs" />
     </div>
 </form>
