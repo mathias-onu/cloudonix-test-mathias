@@ -7,19 +7,19 @@
                     @case ('type') {
                         <div class="flex align-items-center gap-5 flex-1">
                             <label for="type">Type</label>
-                            <p-select formControlName="value" [options]="typeValues" optionLabel="name" placeholder="Select a type value" appendTo="body" inputId="type" />
+                            <p-select formControlName="type" [options]="typeValues" optionLabel="name" placeholder="Select a type value" appendTo="body" inputId="type" />
                         </div>
                     }
                     @case ('available') {
                         <div class="flex align-items-center gap-2 flex-1">
                             <label for="available">Available</label>
-                            <p-checkbox formControlName="value" [value]="false" inputId="available" />
+                            <p-checkbox formControlName="available" [binary]="true" inputId="available" />
                         </div>
                     }
                     @case ('backlog') {
                         <div class="flex align-items-center gap-3 flex-1">
                             <label for="backlogInput">Backlog</label>
-                            <p-inputnumber formControlName="value" [showButtons]="true" inputId="backlog" [min]="0" />
+                            <p-inputnumber formControlName="backlog" [showButtons]="true" inputId="backlog" [min]="0" />
                         </div>
                     }
                 }

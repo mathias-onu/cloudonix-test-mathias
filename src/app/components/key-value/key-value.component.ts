@@ -58,23 +58,27 @@ export class KeyValueComponent implements OnChanges {
   }
 
   addNewPair(profileKey?: string, profileValue?: any) {
-    // TODO: inspect the initialization of profile pairs that already exist (some are not set right)
     // TODO: if a key already exists in the pairs, shouldn't allow selection
+    
     const newPair = this.fb.group({
       key: [profileKey ? { name: profileKey } : '', Validators.required],
-      value: [profileValue ? { name: profileValue} : null as (string | number | boolean | null), Validators.required]
+      type: [{ name: '' }],
+      available: [false],
+      backlog: [0]
     })
+    switch (profileKey) {
+      case 'type':
+          newPair.get('type')?.setValue({ name: profileValue })
+          break
+      case 'available':
+        newPair.get('available')?.setValue(profileValue)
+        break
+      case 'backlog':
+        newPair.get('backlog')?.setValue(profileValue)
+        break
+    }
     
     this.pairs.push(newPair)
-
-    // Sets the value of the availability checkbox
-    newPair.get('key')?.valueChanges.subscribe((key: any) => {
-      if (key!.name === 'available') newPair.get('value')?.setValue(false)
-    })
-
-    newPair.get('value')?.valueChanges.subscribe(value => {
-      // TODO: Doesn't apply the real value of availability
-    })
   }
 
   deletePair($index: number) {

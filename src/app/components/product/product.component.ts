@@ -54,20 +54,10 @@ export class ProductComponent implements OnInit {
     // Iterates over the productProfileForm in KeyValueComponent to parse a product profile object ready for payload
     const profile: any = {}
     this.keyValueComponent()?.productProfileForm.value.pairs?.forEach((pair: any) => {
-      console.log(pair.key.name)
-      switch (pair.key.name) {
-        case 'type':
-          profile[pair.key.name] = pair.value.name
-          break
-        case 'available':
-          profile[pair.key.name] = pair.value[0]
-          break
-        case 'backlog':
-          profile[pair.key.name] = pair.value
-          break
-      }
+      profile[pair.key.name] = pair[pair.key.name]
+      // Parses the value of the type control
+      if (pair.key.name === 'type') profile[pair.key.name] = profile[pair.key.name].name
     })
-    
     const payload: IEditPayload = {
       name: this.productForm.get('name')?.value!,
       description: this.productForm.get('description')?.value!,

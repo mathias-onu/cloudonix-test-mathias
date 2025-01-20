@@ -55,9 +55,7 @@ export class ProductsComponent implements OnInit {
     })
 
     // Updates the products list as a result of closing the dialog
-    this.ref.onClose.subscribe((product) => {
-      if (product) this.getProducts()
-    })
+    this.ref.onClose.subscribe(() => this.getProducts())
   }
 
   deleteProduct(i: number, event: Event) {
