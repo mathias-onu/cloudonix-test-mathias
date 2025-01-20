@@ -1,7 +1,0 @@
-{
-    "/items": {
-        "target": "http://rest-items.research.cloudonix.io",
-        "secure": false,
-        "changeOrigin": true
-    }
-}

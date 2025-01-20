@@ -2,6 +2,8 @@
 
 This web application is live at: [cloudonix-test-mathias.vercel.app](https://cloudonix-test-mathias.vercel.app/).
 
+Since the provided API URL is deployed over HTTP, and Vercel deploys over HTTPS, in production we experience a mixed content error. To view the project, please run it locally.
+
 ## Project documentation
 
 This project is Mathias Onu's submission for an interview assignment for a Frontend Developer position at Cloudonix. It is a web application built with Angular 19, which manages a collection of products for an online store.
