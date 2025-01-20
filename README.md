@@ -47,8 +47,16 @@ To start a local development server, ensure you have:
 - Angular CLI (latest)
 
 To start a local development server, clone the repository (`git clone https://github.com/mathias-onu/cloudonix-test-mathias.git`) and run:
+To start a local development server, ensure you have:
+- Node.js version 18.19.1, or newer
+- Git
+- npm
+- Angular CLI (latest)
+
+To start a local development server, clone the repository (`git clone https://github.com/mathias-onu/cloudonix-test-mathias.git`) and run:
 
 ```bash
+npm start
 npm start
 ```
 
@@ -60,6 +68,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 To build the project run:
 
 ```bash
+npm run build
 npm run build
 ```
 
