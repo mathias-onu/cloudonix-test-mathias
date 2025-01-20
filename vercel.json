@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "http://rest-items.research.cloudonix.io/:path*"
+        }
+    ]
+}
