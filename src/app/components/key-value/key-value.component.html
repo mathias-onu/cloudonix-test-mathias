@@ -1,4 +1,4 @@
-<form [formGroup]="productProfileForm" class="container flex flex-column justify-content-between p-3 h-15rem">
+<form [formGroup]="productProfileForm" class="container flex flex-column justify-content-between p-3 h-11rem">
     <div class="pairs-container" formArrayName="pairs">
         @for (pair of pairs.controls; track pair) {
             <div class="flex justify-content-between gap-3" [class]="$index > 0 ? 'mt-2' : ''" [formGroupName]="$index">

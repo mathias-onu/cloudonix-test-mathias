@@ -26,7 +26,9 @@ export class KeyValueComponent implements OnChanges {
   readonly fb = inject(FormBuilder)
 
   productProfile = input()
+  actionType = input()
 
+  actionTypeValue!: string
   productProfileForm = this.fb.group({
     pairs: this.fb.array([])
   })
@@ -47,19 +49,20 @@ export class KeyValueComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['productProfile']) this.initializeFormArray(changes['productProfile'].currentValue || [])
+    if (changes['productProfile'] || changes['actionType']) {
+      this.actionTypeValue = changes['actionType'].currentValue
+      this.initializeFormArray(changes['productProfile'].currentValue || [])
+    }
   }
 
   initializeFormArray(profile: IProductProfile[]) {
     this.pairs.clear()
 
     // Populates the form array with product data
-    Object.keys(profile).forEach(key => this.addNewPair(key, profile[key as keyof typeof profile]))
+    if (this.actionTypeValue === 'edit') Object.keys(profile).forEach(key => this.addNewPair(key, profile[key as keyof typeof profile]))
   }
 
   addNewPair(profileKey?: string, profileValue?: any) {
-    // TODO: if a key already exists in the pairs, shouldn't allow selection
-    
     const newPair = this.fb.group({
       key: [profileKey ? { name: profileKey } : '', Validators.required],
       type: [{ name: '' }],
@@ -68,8 +71,8 @@ export class KeyValueComponent implements OnChanges {
     })
     switch (profileKey) {
       case 'type':
-          newPair.get('type')?.setValue({ name: profileValue })
-          break
+        newPair.get('type')?.setValue({ name: profileValue })
+        break
       case 'available':
         newPair.get('available')?.setValue(profileValue)
         break

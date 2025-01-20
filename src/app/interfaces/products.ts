@@ -23,3 +23,11 @@ export interface IEditPayload {
     cost: number,
     profile: IProductProfile
 }
+
+export interface ICreatePayload {
+    name: string,
+    description: string,
+    sku: string,
+    cost: number,
+    profile: IProductProfile
+}

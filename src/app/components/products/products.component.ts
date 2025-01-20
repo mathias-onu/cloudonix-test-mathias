@@ -42,11 +42,12 @@ export class ProductsComponent implements OnInit {
     this.getProducts()
   }
 
-  openProduct(i: number) {
+  openProduct(actionType: string, i?: number) {
     // Opens the dialog of the clicked product
     this.ref = this.dialogService.open(ProductComponent, {
       data: {
-        product: this.products[i]
+        actionType: actionType,
+        product: actionType === 'edit' ? this.products[i!] : null
       },
       header: 'Product information',
       width: '80vw',

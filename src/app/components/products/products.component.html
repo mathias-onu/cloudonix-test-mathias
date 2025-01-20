@@ -3,6 +3,7 @@
 
 <div class="p-3 pt-0">
     <h3>Products</h3>
+    <p-button icon="pi pi-plus" severity="secondary" (onClick)="openProduct('add')" />
     @if (products) {
         <p-table 
             #productsTable
@@ -31,9 +32,8 @@
                     <td>${{ product.cost }}</td>
                     <td>
                         <div class="flex gap-3">
-                            <p-button icon="pi pi-eye" severity="secondary" (onClick)="openProduct(rowIndex)" />
-                            <p-button icon="pi pi-pencil" severity="secondary" (onClick)="openProduct(rowIndex)" />
-                            <p-button icon="pi pi-plus" severity="secondary" (onClick)="openProduct(rowIndex)" />
+                            <p-button icon="pi pi-eye" severity="secondary" (onClick)="openProduct('edit', rowIndex)" />
+                            <p-button icon="pi pi-pencil" severity="secondary" (onClick)="openProduct('edit', rowIndex)" />
                             <p-button icon="pi pi-trash" severity="danger" (onClick)="deleteProduct(rowIndex, $event)" [outlined]="true" />
                         </div>
                     </td>
