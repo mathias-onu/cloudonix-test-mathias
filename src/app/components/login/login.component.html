@@ -2,9 +2,9 @@
     <p-card styleClass="p-5">
         <h1>Welcome to Cloudonix Store!</h1>
         <form [formGroup]="authorizationForm" (ngSubmit)="onTokenSubmit()" class="flex flex-column gap-3 mt-5">
-            <label>Please enter your authorization key:</label>
+            <label class="text-base">Please enter your authorization key:</label>
             <input type="text" pInputText formControlName="token">
-            <p-button label="Submit" (onClick)="onTokenSubmit()" [disabled]="authorizationForm.invalid" />
+            <p-button label="Log in" (onClick)="onTokenSubmit()" [disabled]="authorizationForm.invalid" styleClass="text-base" />
         </form>
     </p-card>
 </div>

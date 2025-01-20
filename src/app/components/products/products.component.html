@@ -3,16 +3,16 @@
 
 <div class="p-3 pt-0">
     <h3>Products</h3>
-    <p-button icon="pi pi-plus" severity="secondary" (onClick)="openProduct('add')" />
     @if (products) {
+        <p-button icon="pi pi-plus" severity="secondary" (onClick)="openProduct('add')" />
         <p-table 
             #productsTable
             [value]="products" 
             [tableStyle]="{ 'min-width': '50rem' }"
             styleClass="mt-3"
             [paginator]="true"
-            [rows]="10"
-            [rowsPerPageOptions]="[10, 20, 50]"
+            [rows]="7"
+            [rowsPerPageOptions]="[7, 10, 20]"
             [globalFilterFields]="['id', 'name', 'description', 'cost', 'profile', 'sku']"
         >
             <ng-template #header>
