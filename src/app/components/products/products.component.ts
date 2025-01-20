@@ -80,7 +80,7 @@ export class ProductsComponent implements OnInit {
         this.productsService.deleteProduct(this.products[i].id).subscribe({
           next: () => {
             this.getProducts()
-            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: `Product ${this.products[i].sku} has been deleted` })
+            this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: `Product ${this.products[i].sku} has been deleted` })
           },
           error: () => this.messageService.add({ severity: 'error', summary: 'Error', detail: 'An error occurred while trying to delete the product...' })
         })

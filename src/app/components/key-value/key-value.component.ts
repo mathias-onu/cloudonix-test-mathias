@@ -65,8 +65,8 @@ export class KeyValueComponent implements OnChanges {
   addNewPair(profileKey?: string, profileValue?: any) {
     const newPair = this.fb.group({
       key: [profileKey ? { name: profileKey } : '', Validators.required],
-      type: [{ name: '' }],
-      available: [false],
+      type: [{ name: 'furniture' }],
+      available: [true],
       backlog: [0]
     })
     switch (profileKey) {

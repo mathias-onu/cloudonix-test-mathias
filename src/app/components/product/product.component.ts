@@ -9,7 +9,6 @@ import { KeyValueComponent } from "../key-value/key-value.component";
 import { ProductsService } from '../../services/products.service';
 import { MessageService } from 'primeng/api';
 import { Toast } from 'primeng/toast';
-import { Ripple } from 'primeng/ripple';
 
 @Component({
   selector: 'app-product',
@@ -19,8 +18,7 @@ import { Ripple } from 'primeng/ripple';
     InputTextModule,
     InputNumberModule,
     KeyValueComponent,
-    Toast,
-    Ripple
+    Toast
   ],
   providers: [MessageService],
   templateUrl: './product.component.html',
@@ -62,12 +60,16 @@ export class ProductComponent implements OnInit {
   submit() {
     // Iterates over the productProfileForm in KeyValueComponent to parse a product profile object ready for payload
     const profile: any = {}
-    this.keyValueComponent()?.productProfileForm.value.pairs?.forEach((pair: any) => {
-      profile[pair.key.name] = pair[pair.key.name]
-      // Parses the value of the type control
-      if (pair.key.name === 'type') profile[pair.key.name] = profile[pair.key.name].name
-    })
+    const pairs = this.keyValueComponent()?.productProfileForm.value.pairs
 
+    // If there are key-value pairs, it parses them
+    if (pairs?.length !== 0) {
+      pairs?.forEach((pair: any) => {
+        profile[pair.key.name] = pair[pair.key.name]
+        // Parses the value of the type control
+        if (pair.key.name === 'type') profile[pair.key.name] = profile[pair.key.name].name
+      })
+    }
     const editPayload: IEditPayload = {
       name: this.productForm.get('name')?.value!,
       description: this.productForm.get('description')?.value!,
@@ -82,8 +84,7 @@ export class ProductComponent implements OnInit {
       cost: this.productForm.get('cost')?.value!,
       profile: profile
     }
-
-    // TODO: the toast is not showing
+    
     if (this.actionType === 'edit') {
       this.productsService.editProduct(this.product!.id, editPayload).subscribe({
         next: () => this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The product has been updated!', life: 3000 }),
